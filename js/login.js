@@ -1,3 +1,5 @@
+//Parte 3 - Entregable 1
+
 // funcion para redireccionar a la pagina principal del sitio una vez ingresados los datos de inicio de sesion
 function redireccion() {
     location.href = "principal.html";  
@@ -48,3 +50,15 @@ const validarCasillas = () => {
         successMessage(password);
     }
 };
+
+//Parte 1 - Entregable 2
+
+const usuario = document.getElementById("email");
+const buttonText = document.getElementById("boton-ingreso");
+
+buttonText.addEventListener("click", (evt) => {
+  // Si tenemos texto ingresado en el input, lo guardamos en el localStorage
+  if (usuario.value) {
+    localStorage.setItem("text", usuario.value)
+  }
+});

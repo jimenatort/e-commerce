@@ -12,3 +12,11 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+//Parte 1 - Entregable 2:
+
+//obtiene el elemento clave "texto" guardado en el localStorage
+let texto = localStorage.getItem("text");
+
+//lo muestra en la pagina principal.html en el campo de id="usuario-nav"
+document.getElementById("usuario-nav").innerHTML = texto;
