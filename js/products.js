@@ -39,9 +39,10 @@ function sortProducts(criteria, array){
     return result;
 }
 
-function setCatID(id) {
+//E-3 Parte 1
+function setProductID(id) {
     localStorage.setItem("catID", id);
-    window.location = "products.html"
+    window.location = "product-info.html"
 }
 
 
@@ -56,7 +57,7 @@ function showProductsList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
 
         htmlContent += `
-            <div onclick="setCatID(${product.id})" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setProductID(${product.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
@@ -72,7 +73,7 @@ function showProductsList(){
             </div> 
             `
         }
-        document.getElementById("autos").innerHTML = htmlContent;
+        document.getElementById("productos").innerHTML = htmlContent;
     }     
 }
 
@@ -93,6 +94,7 @@ function sortAndShowProducts(sortCriteria, productsArray){
 //traemos el archivo json con fetch y despues ordenamos la lista en orden asc y desc, filtrar y limpiar filtro.
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(URL).then(function(resultObj){
+        console.log(URL)
       if (resultObj.status === "ok"){
         currentProductsArray = resultObj.data.products
         showProductsList()
