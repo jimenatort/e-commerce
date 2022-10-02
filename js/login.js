@@ -1,19 +1,15 @@
 //Parte 3 - Entregable 1
 
-// funcion para redireccionar a la pagina principal del sitio una vez ingresados los datos de inicio de sesion
-function redireccion() {
-    location.href = "principal.html";  
-}
-
 //Devuelve una referencia al elemento por su ID
 const form = document.getElementById("form");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 
 form.addEventListener("click", (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    validarCasillas();
+    validarCasillas()
+    
 });
 
 const errorMessage = (element, message) => {
@@ -52,13 +48,14 @@ const validarCasillas = () => {
 };
 
 //Parte 1 - Entregable 2
-
+// funcion para redireccionar a la pagina principal del sitio una vez ingresados los datos de inicio de sesion
 const usuario = document.getElementById("email");
 const buttonText = document.getElementById("boton-ingreso");
 
 buttonText.addEventListener("click", (evt) => {
   // Si tenemos texto ingresado en el input, lo guardamos en el localStorage
-  if (usuario.value) {
+  if (usuario.value && password.value) {
     localStorage.setItem("text", usuario.value)
+    location.href = "principal.html"
   }
 });

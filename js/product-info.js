@@ -6,6 +6,7 @@ const comment = document.getElementById("comentario");
 const puntos = document.getElementById("puntos");
 const buttonEnviar = document.getElementById("agregar");
 currentCommentsArray = [];
+currentRelProducts = [];
 let arrayNewComment = [];
 let arrayOldComment = [];
 
@@ -101,6 +102,29 @@ function showCommentsList(){
   }     
 }    
 
+//E4 Parte 1 - mostrar productos relacionados
+function showRelatedProducts(){
+
+  let htmlContent = "";
+  for(let i = 0; i < currentRelProducts.length; i++){
+      let product = currentRelProducts[i];
+
+      
+      htmlContent += `
+      <br>
+          <div onclick="setProductID(${product.id})" class="list-group-item list-group-item-action cursor-active">
+              <div class="col">
+              <img src="${product.image}" alt="" class="img-thumbnail" width="250">
+              <p class="mb-1">${product.name}</p>
+              </div>
+          </div> 
+          `
+      document.getElementById("productos-rel").innerHTML = htmlContent;
+  }     
+}   
+
+
+
 //E-3 parte 2 cargar la info de cada producto
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(INFO_URL).then(function(result){
@@ -141,6 +165,12 @@ document.addEventListener("DOMContentLoaded", function(e){
       currentCommentsArray = resultObj.data
       showCommentsList()
       }
+  });
+  getJSONData(INFO_URL).then(function(result){
+    if(result.status === "ok"){
+      currentRelProducts = result.data.relatedProducts
+      showRelatedProducts()
+    }
   });
 
   buttonEnviar.addEventListener("click", (evt) => {

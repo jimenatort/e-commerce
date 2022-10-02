@@ -40,3 +40,11 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+//Parte 1 - Entregable 2:
+
+//obtiene el elemento clave "texto" guardado en el localStorage
+let texto = localStorage.getItem("text");
+
+//lo muestra en la pagina principal.html en el campo de id="usuario-nav"
+document.getElementById("dropdownMenuButton1").innerHTML = texto;
