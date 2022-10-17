@@ -41,7 +41,7 @@ function sortProducts(criteria, array){
 
 //E-3 Parte 1
 function setProductID(id) {
-    localStorage.setItem("catID", id);
+    localStorage.setItem("prodID", id);
     window.location = "product-info.html"
 }
 

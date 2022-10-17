@@ -1,5 +1,5 @@
 //E-3 Parte 2 - Uso del identificador del local storage
-const ID = localStorage.getItem("catID");
+const ID = localStorage.getItem("prodID");
 const INFO_URL = PRODUCT_INFO_URL + ID + EXT_TYPE;
 const COMMENTS_URL = PRODUCT_INFO_COMMENTS_URL + ID + EXT_TYPE;
 const comment = document.getElementById("comentario");
@@ -30,7 +30,7 @@ function agregarComentario() {
 
 
 function setProductID(id) {
-  localStorage.setItem("catID", id);
+  localStorage.setItem("prodID", id);
   window.location = "product-info.html"
 }
 //E3 Parte 3
