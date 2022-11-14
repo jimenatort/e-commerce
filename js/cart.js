@@ -45,7 +45,7 @@ function showCartInfo() {
            <td><img src="${cartInfo.image}" alt="" width=100px class="row"></td>
            <td>${cartInfo.name}</td>
            <td><span class="currency">${cartInfo.currency} </span><span class="costo" id="costo${cartInfo.id}">${cartInfo.unitCost}</span></td>
-           <td><input class="cant" id="cant${cartInfo.id}" type="number" placeholder="${cartInfo.count}" onInput="calcSubtotal(${cartInfo.id});validateCountCart(${cartInfo.id})"/></td>
+           <td><input class="cant" id="cant${cartInfo.id}" type="number" placeholder="${cartInfo.count}" onInput="calcSubtotal(${cartInfo.id});validateCountCart(${cartInfo.id});calcSumSub(${cartInfo.id})"/></td>
            <td><span id="subtotal${cartInfo.id}" class="subtotal"></span></td>
         </tr>
       </table>
@@ -55,6 +55,52 @@ function showCartInfo() {
       <hr>
         `
         cart_info.appendChild(div);
+
+        const div2 = document.createElement("div")
+        div2.innerHTML = `
+        <div class="list-group-item">
+        <div class="row">
+                  <div class="col">
+                    <p class="mb-1">Subtotal</p>
+                    <small class="mb-1">Costo unitario del producto por cantidad</small>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                      <p class="text-muted">USD</p>
+                      <p class="text-muted" id="sumSub${cartInfo.id}"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group-item">
+                <div class="row">
+                  <div class="col">
+                    <p class="mb-1">Costo de envío</p>
+                    <small class="mb-1">Según el tipo de envío</small>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h4 class="mb-1"></h4>
+                      <p class="text-muted" id="costo-envio">USD</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group-item">
+                <div class="row">
+                  <div class="col">
+                    <p class="mb-1">Total ($)</p>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h4 class="mb-1"></h4>
+                      <p class="text-muted" id="total-general"><strong>USD</strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        `
+        costos.appendChild(div2);
     }
 }
 
@@ -155,6 +201,31 @@ function validateCountCart(id) {
     }
 }
 
+//E6 Parte 1: crear una funcion para cada valor a mostrar (subtotal, costo de envio, total)
+//Seguir todos los pasos de forma similar a como se hizo en el E5 con el subtotal
+//Los 3 valores deberán actualizarse en tiempo real cuando se modifique el tipo de envío o los artículos en el carrito.
+//Todos los valores deberán ser mostrados en dólares.
+
+const calcSumSub = (id) => {
+    const cantidad = document.getElementById("cant" + id);
+    const costo = document.getElementById("costo" + id);
+    const sumSub = document.getElementById("sumSub" + id);
+    const cantidadValue = parseInt(cantidad.value);
+    const costoValue = parseFloat(costo.innerHTML);
+    //console.log(cantidadValue, costoValue, subtotal)
+
+    sumSub.innerHTML = cantidadValue * costoValue;
+};
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -167,24 +238,3 @@ function validateCountCart(id) {
 
     (document.pay_form.cuenta.disabled = !document.pay_form.transf.checked);
 };*/
-
-/*const div2 = document.createElement("div")
-        div2.innerHTML += `
-        <div class="list-group-item">
-                <div class="row">
-                    <div class="col">
-                       <p class="mb-1">Subtotal</p>
-                       <small class="mb-1">Costo unitario del producto por cantidad</small>
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1"></h4>
-                            <p class="text-muted" id="subtotal${cartInfo.id}"></p>
-                        </div>
-                        <p class="mb-1"></p>
-                    </div>
-                </div>
-            </div>
-        `
-        console.log(div2.innerHTML)
-        costos.appendChild(div2);*/

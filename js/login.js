@@ -49,13 +49,12 @@ const validarCasillas = () => {
 
 //Parte 1 - Entregable 2
 // funcion para redireccionar a la pagina principal del sitio una vez ingresados los datos de inicio de sesion
-const usuario = document.getElementById("email");
 const buttonText = document.getElementById("boton-ingreso");
 
 buttonText.addEventListener("click", (evt) => {
   // Si tenemos texto ingresado en el input, lo guardamos en el localStorage
-  if (usuario.value && password.value) {
-    localStorage.setItem("text", usuario.value)
+  if (email.value && password.value) {
+    localStorage.setItem("text", email.value)
     location.href = "principal.html"
   }
 });

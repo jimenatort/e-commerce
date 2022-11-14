@@ -19,10 +19,9 @@
     display: inline;
   }
 
-  #addMsg{
+  #addMsg {
     color: red;
   }
-
 </style>
 
 <body>
@@ -50,7 +49,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item" id="my-profile" href="my-profile.html">Mi perfil</a></li>
               <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
             </ul>
           </div>
@@ -67,7 +66,7 @@
       </div>
       <div id="envio-info">
         <br><br>
-        
+
         <h5>Tipo de envío</h5><br>
         <form class="needs-validation" novalidate>
           <input type="radio" id="prem" name="fav_language" value="" class="form-check-input" checked>
@@ -115,69 +114,31 @@
               <hr>
               <h5>Costos</h5><br>
             </div>
+
             <div id="costos">
-              <div class="list-group-item">
-                <div class="row">
-                  <div class="col">
-                    <p class="mb-1">Subtotal</p>
-                    <small class="mb-1">Costo unitario del producto por cantidad</small>
-                  </div>
-                  <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                      <h4 class="mb-1"></h4>
-                      <p class="text-muted" id="subtotal-general">USD</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="list-group-item">
-                <div class="row">
-                  <div class="col">
-                    <p class="mb-1">Costo de envío</p>
-                    <small class="mb-1">Según el tipo de envío</small>
-                  </div>
-                  <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                      <h4 class="mb-1"></h4>
-                      <p class="text-muted" id="costo-envio">USD</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="list-group-item">
-                <div class="row">
-                  <div class="col">
-                    <p class="mb-1">Total ($)</p>
-                  </div>
-                  <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                      <h4 class="mb-1"></h4>
-                      <p class="text-muted" id="total-general"><strong>USD</strong></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <br>
-                <hr>
-                <h5>Forma de pago</h5><br>
-                <div class="row">
-                  <div class="col">
-                    <p class="d-inline" id="addText">No ha seleccionado &nbsp;</p><a class="d-inline"
-                      href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal">Seleccionar</a>
-                  </div>
-                  <div id="addMsg">
-                    
-                  </div>
-                </div>
-              </div>
 
             </div>
+
+            <div>
+              <br>
+              <hr>
+              <h5>Forma de pago</h5><br>
+              <div class="row">
+                <div class="col">
+                  <p class="d-inline" id="addText">No ha seleccionado &nbsp;</p><a class="d-inline" href="#exampleModal"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">Seleccionar</a>
+                </div>
+                <div id="addMsg">
+
+                </div>
+              </div>
+            </div>
+
+
 
             <div class="d-grid gap-2" id="finalizar"><br><br>
               <button class="btn btn-primary" id="finalizar" type="submit">Finalizar compra</button>
             </div>
-          </div>
         </form>
       </div>
 
